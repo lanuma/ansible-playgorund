@@ -1,0 +1,19 @@
+---
+# tasks file for dbserver
+- name: install mariadb repo
+  template:
+    src: mariadb.repo.j2
+    dest: /etc/yum.repos.d/mariadb.repo
+
+- name: install python2-PyMySQL
+  yum:
+    name: python2-PyMySQL
+    state: present
+
+- name: install mariadb server and mariadb client
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - MariaDB-server
+    - MariaDB-client

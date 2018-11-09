@@ -1,0 +1,10 @@
+---
+- name: install epel-release repo
+  yum:
+    name: epel-release
+    state: present
+
+- name: install remi repo
+  yum:
+    name: https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present

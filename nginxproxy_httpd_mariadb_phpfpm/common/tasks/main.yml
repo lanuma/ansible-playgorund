@@ -1,0 +1,13 @@
+---
+# tasks file for common
+- name: selinux
+  import_tasks: selinux.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: install repo
+  import_tasks: repo.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: install nginx upstream repo
+  import_tasks: nginx.yml
+  when: ansible_os_family == 'RedHat'
